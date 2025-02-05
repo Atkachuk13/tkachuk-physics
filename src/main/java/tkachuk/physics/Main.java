@@ -1,3 +1,4 @@
+package tkachuk.physics;
 import java.util.Scanner;
 
 public class Main
