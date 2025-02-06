@@ -5,10 +5,10 @@ public class Force
     private double degrees;
     private double magnitude;
 
-    public Force(double deg, double mag)
+    public Force(double degrees, double magnitude)
     {
-        this.degrees = deg;
-        this.magnitude = mag;
+        this.degrees = degrees;
+        this.magnitude = magnitude;
     }
 
     public double getDegrees()
@@ -33,26 +33,31 @@ public class Force
 
     public Force add(Force force)
     {
+        double dd = Math.toRadians(degrees);
+        double mm = Math.toRadians(magnitude);
+        double dd2 = Math.toRadians(force.degrees);
+        double mm2 = Math.toRadians(force.magnitude);
+
         //degree 1
-        double xVal1 = Math.cos(degrees) * magnitude;
-        double yVal1 = Math.sin(degrees) * magnitude;
+        double xVal1 = Math.toDegrees(Math.cos(dd) * mm);
+        double yVal1 = Math.toDegrees(Math.sin(dd) * mm);
 
         //degree 2
-        double xVal2 = Math.cos(force.degrees) * force.magnitude;
-        double yVal2 = (Math.sin(force.degrees) * force.magnitude) *-1;
+        double xVal2 = Math.toDegrees(Math.cos(dd2) * mm2);
+        double yVal2 = Math.toDegrees(Math.sin(dd2) * mm2);
 
         //combining xs and ys
         double xEs = xVal1 + xVal2;
         double yEs = yVal1 + yVal2;
 
-        //finding the angle
+        //finding the degree
         double num = (xEs * xEs) + (yEs * yEs);
-        double deg = Math.sqrt(num);
+        double mag = Math.sqrt(num);
 
         //finding magnitude
-        double mag = Math.atan(yEs / xEs);
-        double result = Math.toDegrees(mag);
+        double result = Math.atan(yEs / xEs);
+        double deg = Math.toDegrees(result);
 
-        return new Force(deg, result);
+        return new Force(deg, mag);
     }
 }
