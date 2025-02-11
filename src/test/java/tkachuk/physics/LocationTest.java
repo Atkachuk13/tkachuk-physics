@@ -9,8 +9,8 @@ public class LocationTest
     @Test
     public void apply()
     {
-        Force force = new Force(36.87,5);
-        Location l = new Location (7,3);
+        Force force = new Force(36.87, 5);
+        Location l = new Location(7, 3);
 
         Location newLoc = l.apply(force);
 

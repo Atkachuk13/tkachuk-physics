@@ -14,7 +14,7 @@ class ForceTest
         Force f1 = new Force(32, 10);
         Force f2 = new Force(105, 10);
         //when:
-        //run wjat is being tested
+        //run what is being tested
         Force f3 = f1.add(f2);
         //then:
         //check the result
@@ -30,7 +30,7 @@ class ForceTest
 
         Force difForce = f.scale(0.391);
 
-        assertEquals(30, difForce.getDegrees(),0.1);
+        assertEquals(30, difForce.getDegrees(), 0.1);
         assertEquals(5.865, difForce.getMagnitude(), 0.1);
     }
 

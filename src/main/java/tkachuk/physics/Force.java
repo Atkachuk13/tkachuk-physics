@@ -13,15 +13,6 @@ public class Force
     }
 
 
-    public Force scale(double t)
-    {
-        double deg = degrees;
-        double mag = magnitude * t;
-
-        return new Force(deg, mag);
-    }
-
-
     public double getDegrees()
     {
         return degrees;
@@ -40,6 +31,14 @@ public class Force
     public void setMagnitude(double magnitude)
     {
         this.magnitude = magnitude;
+    }
+
+    public Force scale(double t)
+    {
+        double deg = degrees;
+        double mag = magnitude * t;
+
+        return new Force(deg, mag);
     }
 
     public Force add(Force force)
@@ -62,12 +61,12 @@ public class Force
         double yEs = yVal1 + yVal2;
 
         //finding the degree
-        double num = (xEs * xEs) + (yEs * yEs);
-        double mag = Math.sqrt(num);
-
-        //finding magnitude
         double result = Math.atan(yEs / xEs);
         double deg = Math.toDegrees(result);
+
+        //finding magnitude
+        double num = (xEs * xEs) + (yEs * yEs);
+        double mag = Math.sqrt(num);
 
         return new Force(deg, mag);
     }

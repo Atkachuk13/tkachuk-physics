@@ -34,10 +34,10 @@ public class Location
 
     public Location apply(Force f)
     {
-        double radiance = Math.toRadians(f.getDegrees());
+        double radians = Math.toRadians(f.getDegrees());
 
-        double num1 = f.getMagnitude() * Math.cos(radiance);
-        double num2 = f.getMagnitude() * Math.sin(radiance);
+        double num1 = f.getMagnitude() * Math.cos(radians);
+        double num2 = f.getMagnitude() * Math.sin(radians);
 
         double newX = x + num1;
         double newY = y + num2;
