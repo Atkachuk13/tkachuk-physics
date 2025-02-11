@@ -4,8 +4,6 @@ public class Location
 {
     private double x;
     private double y;
-
-
     public Location(double x, double y)
     {
         this.x = x;
@@ -39,8 +37,8 @@ public class Location
         double num1 = f.getMagnitude() * Math.cos(radiance);
         double num2 = f.getMagnitude() * Math.sin(radiance);
 
-        double newX = Math.round(x + num1);
-        double newY = Math.round(y + num2);
+        double newX = x + num1;
+        double newY = y + num2;
 
         return new Location(newX, newY);
     }
