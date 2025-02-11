@@ -16,6 +16,5 @@ public class LocationTest
 
         assertEquals(11, newLoc.getX(), 0.1);
         assertEquals(6, newLoc.getY(), 0.1);
-
     }
 }

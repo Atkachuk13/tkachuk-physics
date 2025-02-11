@@ -48,6 +48,5 @@ public class Location
         double newY = Math.round(y + num2);
 
         return new Location(newX, newY);
-
     }
 }

@@ -12,7 +12,6 @@ public class Force
         double mag = magnitude * t;
 
         return new Force(deg, mag);
-
     }
 
 
@@ -70,6 +69,5 @@ public class Force
         double deg = Math.toDegrees(result);
 
         return new Force(deg, mag);
-
     }
 }
