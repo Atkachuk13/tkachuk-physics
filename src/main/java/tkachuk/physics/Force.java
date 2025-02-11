@@ -4,6 +4,8 @@ public class Force
 {
     private double degrees;
     private double magnitude;
+
+
     public Force(double degrees, double magnitude)
     {
         this.degrees = degrees;
