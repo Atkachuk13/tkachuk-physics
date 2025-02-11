@@ -22,4 +22,16 @@ class ForceTest
         assertEquals(16.08, f3.getMagnitude(), 0.1);
     }
 
+
+    @Test
+    public void scale()
+    {
+        Force f = new Force(30, 15);
+
+        Force difForce = f.scale(0.391);
+
+        assertEquals(30, difForce.getDegrees(),0.1);
+        assertEquals(5.865, difForce.getMagnitude(), 0.1);
+    }
+
 }

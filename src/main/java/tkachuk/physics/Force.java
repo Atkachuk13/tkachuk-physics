@@ -5,6 +5,17 @@ public class Force
     private double degrees;
     private double magnitude;
 
+
+    public Force scale(double t)
+    {
+        double deg = degrees;
+        double mag = magnitude * t;
+
+        return new Force(deg, mag);
+
+    }
+
+
     public Force(double degrees, double magnitude)
     {
         this.degrees = degrees;
@@ -59,5 +70,6 @@ public class Force
         double deg = Math.toDegrees(result);
 
         return new Force(deg, mag);
+
     }
 }
