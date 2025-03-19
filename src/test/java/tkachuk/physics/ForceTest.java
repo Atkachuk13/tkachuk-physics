@@ -11,8 +11,8 @@ class ForceTest
     {
         //given:
         // set variable
-        Force f1 = new Force(32, 10);
-        Force f2 = new Force(105, 10);
+        Force f1 = new Force(new Angle(32), 10);
+        Force f2 = new Force(new Angle(105), 10);
         //when:
         //run what is being tested
         Force f3 = f1.add(f2);

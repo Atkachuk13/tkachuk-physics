@@ -2,72 +2,55 @@ package tkachuk.physics;
 
 public class Force
 {
-    private double degrees;
-    private double magnitude;
+
+    public static final Force GRAVITY = new Force(0, -9.8);
+    private double x;
+    private double y;
 
 
-    public Force(double degrees, double magnitude)
+    public Force(double x, double y)
     {
-        this.degrees = degrees;
-        this.magnitude = magnitude;
+        this.x = x;
+        this.y = y;
+    }
+    public double getX()
+    {
+        return x;
     }
 
+    public double getY()
+    {
+        return y;
+    }
+
+    public Force(Angle degrees, double magnitude)
+    {
+        x = Math.toDegrees(Math.cos(degrees.toRadians()) * magnitude);
+        y = Math.toDegrees(Math.sin(degrees.toRadians()) * magnitude);
+    }
 
     public double getDegrees()
     {
-        return degrees;
-    }
-
-    public void setDegrees(double degrees)
-    {
-        this.degrees = degrees;
+        return Math.toDegrees(Math.atan(y / x));
     }
 
     public double getMagnitude()
     {
-        return magnitude;
-    }
-
-    public void setMagnitude(double magnitude)
-    {
-        this.magnitude = magnitude;
+        return Math.sqrt((x * x) + (y * y));
     }
 
     public Force scale(double t)
     {
-        double deg = degrees;
-        double mag = magnitude * t;
-
-        return new Force(deg, mag);
+        return new Force(getDegrees(), getMagnitude() * t);
     }
 
     public Force add(Force force)
     {
-        double dd = Math.toRadians(degrees);
-        double mm = Math.toRadians(magnitude);
-        double dd2 = Math.toRadians(force.degrees);
-        double mm2 = Math.toRadians(force.magnitude);
-
-        //degree 1
-        double xVal1 = Math.toDegrees(Math.cos(dd) * mm);
-        double yVal1 = Math.toDegrees(Math.sin(dd) * mm);
-
-        //degree 2
-        double xVal2 = Math.toDegrees(Math.cos(dd2) * mm2);
-        double yVal2 = Math.toDegrees(Math.sin(dd2) * mm2);
 
         //combining xs and ys
-        double xEs = xVal1 + xVal2;
-        double yEs = yVal1 + yVal2;
+        x = getX() + force.getX();
+        y = getY() + force.getY();
 
-        //finding the degree
-        double result = Math.atan(yEs / xEs);
-        double deg = Math.toDegrees(result);
-
-        //finding magnitude
-        double num = (xEs * xEs) + (yEs * yEs);
-        double mag = Math.sqrt(num);
-
-        return new Force(deg, mag);
+        return new Force(getDegrees(), getMagnitude());
     }
 }

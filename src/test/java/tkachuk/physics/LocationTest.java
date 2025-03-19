@@ -12,7 +12,7 @@ public class LocationTest
         Force force = new Force(36.87, 5);
         Location l = new Location(7, 3);
 
-        Location newLoc = l.apply(force);
+        Location newLoc = l.move(force);
 
         assertEquals(11, newLoc.getX(), 0.1);
         assertEquals(6, newLoc.getY(), 0.1);
